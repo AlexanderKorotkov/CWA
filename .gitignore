@@ -7,7 +7,7 @@ plugins/
 logs/
 .idea/
 app/**/*.js
-*.js.map
+app/**/*.js.map
 ### Linux template
 *~
 
