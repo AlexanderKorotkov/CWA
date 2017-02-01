@@ -6,6 +6,8 @@ platforms/
 plugins/
 logs/
 .idea/
+app/**/*.js
+app/**/*.js.map
 ### Linux template
 *~
 
