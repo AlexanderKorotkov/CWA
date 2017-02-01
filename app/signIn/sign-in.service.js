@@ -27,10 +27,9 @@ var SignInService = (function () {
     };
     SignInService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object, config_service_1.Config])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.Config])
     ], SignInService);
     return SignInService;
-    var _a;
 }());
 exports.SignInService = SignInService;
 //# sourceMappingURL=sign-in.service.js.map

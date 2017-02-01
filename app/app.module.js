@@ -19,6 +19,7 @@ var app_routing_module_1 = require('./app-routing.module');
 var app_component_1 = require('./app.component');
 var sign_in_component_1 = require('./signIn/sign-in.component');
 var change_password_component_1 = require('./dashboard/menu/changePassword/change-password.component');
+var create_company_component_1 = require('./dashboard/menu/createCompany/create-company.component');
 var sign_up_component_1 = require('./signUp/sign-up.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var menu_component_1 = require('./dashboard/menu/menu.component');
@@ -34,6 +35,7 @@ var auth_service_1 = require('./shared/auth/auth.service');
 var config_service_1 = require('./shared/config/config.service');
 var sign_in_service_1 = require('./signIn/sign-in.service');
 var change_password_service_1 = require('./dashboard/menu/changePassword/change-password.service');
+var create_company_service_1 = require('./dashboard/menu/createCompany/create-company.service');
 var select_company_service_1 = require('./dashboard/menu/selectCompany/select-company.service');
 var workers_service_1 = require('./dashboard/workers/workers.service');
 var add_worker_service_1 = require('./dashboard/workers/add-worker/add-worker.service');
@@ -64,7 +66,8 @@ var AppModule = (function () {
                 add_worker_component_1.AddWorkerComponent,
                 worker_details_component_1.WorkerDetailsComponent,
                 worker_edit_component_1.WorkerEditComponent,
-                landing_component_1.LandingComponent
+                landing_component_1.LandingComponent,
+                create_company_component_1.CreateCompanyComponent
             ],
             providers: [
                 sign_in_service_1.SignInService,
@@ -75,7 +78,8 @@ var AppModule = (function () {
                 select_company_service_1.SelectCompanyService,
                 workers_service_1.WorkersService,
                 add_worker_service_1.AddWorkerService,
-                worker_edit_service_1.WorkerEditService
+                worker_edit_service_1.WorkerEditService,
+                create_company_service_1.CreateCompanyService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

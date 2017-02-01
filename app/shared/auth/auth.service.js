@@ -83,10 +83,9 @@ var AuthService = (function () {
     };
     AuthService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object, (typeof (_b = typeof common_1.Location !== 'undefined' && common_1.Location) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [router_1.Router, common_1.Location])
     ], AuthService);
     return AuthService;
-    var _a, _b;
 }());
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

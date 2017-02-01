@@ -17,27 +17,11 @@ var Interceptor = (function () {
         this.authService = authService;
         this.router = router;
     }
-    Interceptor.prototype.before = function (request) {
-        return request;
-    };
-    Interceptor.prototype.after = function (res) {
-        var _this = this;
-        res.toPromise().then(function (data) {
-            if (data.status === 403) {
-                if (_this.authService.isAuthenticated()) {
-                    _this.authService.removeUserIdentity();
-                }
-                _this.router.navigate(['/signIn']);
-            }
-        });
-        return res;
-    };
     Interceptor = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, (typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], Interceptor);
     return Interceptor;
-    var _a;
 }());
 exports.Interceptor = Interceptor;
 //# sourceMappingURL=http-interceptor.js.map

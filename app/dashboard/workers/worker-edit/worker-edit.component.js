@@ -49,10 +49,9 @@ var WorkerEditComponent = (function () {
             selector: 'worker-edit',
             templateUrl: '../shared/add-edit-worker.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof router_1.ActivatedRoute !== 'undefined' && router_1.ActivatedRoute) === 'function' && _a) || Object, worker_edit_service_1.WorkerEditService, auth_service_1.AuthService, (typeof (_b = typeof common_1.Location !== 'undefined' && common_1.Location) === 'function' && _b) || Object, workers_service_1.WorkersService, (typeof (_c = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, worker_edit_service_1.WorkerEditService, auth_service_1.AuthService, common_1.Location, workers_service_1.WorkersService, angular2_notifications_1.NotificationsService])
     ], WorkerEditComponent);
     return WorkerEditComponent;
-    var _a, _b, _c;
 }());
 exports.WorkerEditComponent = WorkerEditComponent;
 //# sourceMappingURL=worker-edit.component.js.map

@@ -9,6 +9,7 @@ import { DashboardComponent }      from './dashboard/dashboard.component';
 import { MenuComponent }           from './dashboard/menu/menu.component';
 import { ChangePasswordComponent } from './dashboard/menu/changePassword/change-password.component';
 import { SelectCompanyComponent }  from './dashboard/menu/selectCompany/select-company.component';
+import { CreateCompanyComponent }  from './dashboard/menu/createCompany/create-company.component';
 import { WorkersComponent }        from './dashboard/workers/workers.component';
 import { AddWorkerComponent }      from './dashboard/workers/add-worker/add-worker.component';
 import { WorkerDetailsComponent }  from './dashboard/workers/worker-details/worker-details.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
     },
     { path: 'dashboard/changePassword',  component: ChangePasswordComponent, canActivate: [AuthService] },
     { path: 'dashboard/selectCompany',  component: SelectCompanyComponent, canActivate: [AuthService] },
+    { path: 'dashboard/createCompany',  component: CreateCompanyComponent, canActivate: [AuthService] },
     { path: 'dashboard/addWorker',  component: AddWorkerComponent, canActivate: [AuthService] },
     { path: 'dashboard/workerDetails/:id',  component: WorkerDetailsComponent, canActivate: [AuthService] },
     { path: 'dashboard/workerEdit/:id',  component: WorkerEditComponent, canActivate: [AuthService] },

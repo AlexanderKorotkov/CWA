@@ -33,10 +33,9 @@ var WorkerDetailsComponent = (function () {
             selector: 'worker-details',
             templateUrl: 'worker-details.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof common_1.Location !== 'undefined' && common_1.Location) === 'function' && _a) || Object, workers_service_1.WorkersService, auth_service_1.AuthService])
+        __metadata('design:paramtypes', [common_1.Location, workers_service_1.WorkersService, auth_service_1.AuthService])
     ], WorkerDetailsComponent);
     return WorkerDetailsComponent;
-    var _a;
 }());
 exports.WorkerDetailsComponent = WorkerDetailsComponent;
 //# sourceMappingURL=worker-details.component.js.map

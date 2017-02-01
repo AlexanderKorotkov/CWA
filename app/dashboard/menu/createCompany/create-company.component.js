@@ -12,25 +12,24 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var auth_service_1 = require('../../../shared/auth/auth.service');
 var angular2_notifications_1 = require('angular2-notifications');
-var change_password_service_1 = require('./change-password.service');
-var ChangePasswordComponent = (function () {
-    function ChangePasswordComponent(authService, notificationsService, router, changePasswordService) {
+var create_company_service_1 = require('./create-company.service');
+var CreateCompanyComponent = (function () {
+    function CreateCompanyComponent(authService, notificationsService, router, createCompanyService) {
         this.authService = authService;
         this.notificationsService = notificationsService;
         this.router = router;
-        this.changePasswordService = changePasswordService;
+        this.createCompanyService = createCompanyService;
     }
-    ChangePasswordComponent.prototype.ngOnInit = function () {
+    CreateCompanyComponent.prototype.ngOnInit = function () {
         this.currentUser = this.authService.getUserIdentity().user;
-        this.passwordData = {
-            oldPassword: '',
-            newPassword: '',
-            repeatPassword: ''
+        this.companyData = {
+            companyName: '',
+            companyNameRepeat: ''
         };
     };
-    ChangePasswordComponent.prototype.updatePassword = function () {
+    CreateCompanyComponent.prototype.create = function () {
         var _this = this;
-        this.changePasswordService.updatePassword(this.passwordData, this.currentUser._id).then(function (result) {
+        this.createCompanyService.createCompany(this.companyData, this.currentUser._id).then(function (result) {
             _this.router.navigate(['/dashboard/menu']);
             _this.notificationsService.success('Success', "" + result.message, {
                 position: ["bottom", "right"],
@@ -41,15 +40,15 @@ var ChangePasswordComponent = (function () {
             _this.notificationsService.error('Error', "" + result.error);
         });
     };
-    ChangePasswordComponent = __decorate([
+    CreateCompanyComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'change-password',
-            templateUrl: 'change-password.component.html'
+            selector: 'create-company',
+            templateUrl: 'create-company.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, angular2_notifications_1.NotificationsService, router_1.Router, change_password_service_1.ChangePasswordService])
-    ], ChangePasswordComponent);
-    return ChangePasswordComponent;
+        __metadata('design:paramtypes', [auth_service_1.AuthService, angular2_notifications_1.NotificationsService, router_1.Router, create_company_service_1.CreateCompanyService])
+    ], CreateCompanyComponent);
+    return CreateCompanyComponent;
 }());
-exports.ChangePasswordComponent = ChangePasswordComponent;
-//# sourceMappingURL=change-password.component.js.map
+exports.CreateCompanyComponent = CreateCompanyComponent;
+//# sourceMappingURL=create-company.component.js.map

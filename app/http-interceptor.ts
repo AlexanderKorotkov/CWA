@@ -15,20 +15,21 @@ export class Interceptor implements HttpInterceptor {
         private router: Router
     ) { }
 
-    before(request: Request): Request {
-        return request;
-    }
-
-    after(res: Observable<Response>): Observable<any> {
-        res.toPromise().then(data =>{
-            if(data.status === 403){
-                if (this.authService.isAuthenticated()) {
-                    this.authService.removeUserIdentity();
-                }
-                this.router.navigate(['/signIn']);
-            }
-        });
-        return res;
-    }
+    // before(request: Request): Request {
+    //     return request;
+    // }
+    //
+    // after(res: Observable<Response>): Observable<any> {
+    //     res.toPromise().then(data =>{
+    //         if(data.status === 403){
+    //             if (this.authService.isAuthenticated()) {
+    //                 this.authService.removeUserIdentity();
+    //             }
+    //             this.router.navigate(['/signIn']);
+    //         }
+    //         return res;
+    //     });
+    //     // return res;
+    // }
 
 }

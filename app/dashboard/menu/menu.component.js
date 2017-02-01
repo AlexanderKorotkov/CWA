@@ -25,10 +25,9 @@ var MenuComponent = (function () {
             selector: 'menu',
             templateUrl: 'menu.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, (typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [auth_service_1.AuthService, router_1.Router])
     ], MenuComponent);
     return MenuComponent;
-    var _a;
 }());
 exports.MenuComponent = MenuComponent;
 //# sourceMappingURL=menu.component.js.map

@@ -47,10 +47,9 @@ var AddWorkerComponent = (function () {
             selector: 'add-worker',
             templateUrl: '../shared/add-edit-worker.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object, add_worker_service_1.AddWorkerService, auth_service_1.AuthService, (typeof (_b = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [router_1.Router, add_worker_service_1.AddWorkerService, auth_service_1.AuthService, angular2_notifications_1.NotificationsService])
     ], AddWorkerComponent);
     return AddWorkerComponent;
-    var _a, _b;
 }());
 exports.AddWorkerComponent = AddWorkerComponent;
 //# sourceMappingURL=add-worker.component.js.map

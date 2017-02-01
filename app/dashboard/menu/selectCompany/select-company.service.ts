@@ -13,7 +13,7 @@ export class SelectCompanyService {
         private config: Config,
         private authService: AuthService
     ) { }
-    private getUserCompanyListUrl = `${this.config.getConfig().apiMainUrl}/users/`;  // URL to web api
+    private getUserCompanyListUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
     private selectCompanyUrl = `${this.config.getConfig().apiMainUrl}/users/selectCompany`;  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 

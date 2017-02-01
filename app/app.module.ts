@@ -12,6 +12,7 @@ import { AppRoutingModule }        from './app-routing.module';
 import { AppComponent }            from './app.component';
 import { SignInComponent }         from './signIn/sign-in.component';
 import { ChangePasswordComponent } from './dashboard/menu/changePassword/change-password.component';
+import { CreateCompanyComponent }  from './dashboard/menu/createCompany/create-company.component';
 import { SignUpComponent }         from './signUp/sign-up.component';
 import { DashboardComponent }      from './dashboard/dashboard.component';
 import { MenuComponent }           from './dashboard/menu/menu.component';
@@ -29,6 +30,7 @@ import { AuthService }             from './shared/auth/auth.service';
 import { Config }                  from './shared/config/config.service';
 import { SignInService }           from './signIn/sign-in.service';
 import { ChangePasswordService }   from './dashboard/menu/changePassword/change-password.service';
+import { CreateCompanyService }    from './dashboard/menu/createCompany/create-company.service';
 import { SelectCompanyService }    from './dashboard/menu/selectCompany/select-company.service';
 import { WorkersService }          from './dashboard/workers/workers.service';
 import { AddWorkerService }        from './dashboard/workers/add-worker/add-worker.service';
@@ -58,7 +60,8 @@ import { WorkerEditService }       from './dashboard/workers/worker-edit/worker-
         AddWorkerComponent,
         WorkerDetailsComponent,
         WorkerEditComponent,
-        LandingComponent
+        LandingComponent,
+        CreateCompanyComponent
     ],
     providers: [
         SignInService,
@@ -69,7 +72,8 @@ import { WorkerEditService }       from './dashboard/workers/worker-edit/worker-
         SelectCompanyService,
         WorkersService,
         AddWorkerService,
-        WorkerEditService
+        WorkerEditService,
+        CreateCompanyService
     ],
     bootstrap: [ AppComponent ]
 })

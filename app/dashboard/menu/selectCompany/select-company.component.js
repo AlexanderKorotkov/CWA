@@ -21,7 +21,7 @@ var SelectCompanyComponent = (function () {
     SelectCompanyComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.currentUser = this.authService.getUserIdentity().user;
-        this.selectedCompany = this.currentUser.currentCompany.companyName;
+        this.selectedCompany = '';
         this.selectCompanyService.getUserCompanyList(this.currentUser._id).then(function (result) {
             _this.companyList = result;
         }, function (result) {
@@ -51,10 +51,9 @@ var SelectCompanyComponent = (function () {
             selector: 'select-company',
             templateUrl: 'select-company.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.AuthService, (typeof (_a = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _a) || Object, select_company_service_1.SelectCompanyService])
+        __metadata('design:paramtypes', [auth_service_1.AuthService, angular2_notifications_1.NotificationsService, select_company_service_1.SelectCompanyService])
     ], SelectCompanyComponent);
     return SelectCompanyComponent;
-    var _a;
 }());
 exports.SelectCompanyComponent = SelectCompanyComponent;
 //# sourceMappingURL=select-company.component.js.map

@@ -18,7 +18,7 @@ var SelectCompanyService = (function () {
         this.http = http;
         this.config = config;
         this.authService = authService;
-        this.getUserCompanyListUrl = this.config.getConfig().apiMainUrl + "/users/"; // URL to web api
+        this.getUserCompanyListUrl = this.config.getConfig().apiMainUrl + "/company/"; // URL to web api
         this.selectCompanyUrl = this.config.getConfig().apiMainUrl + "/users/selectCompany"; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json', 'authorization': this.authService.getAuthorizationHeader() });
     }
@@ -36,10 +36,9 @@ var SelectCompanyService = (function () {
     };
     SelectCompanyService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object, config_service_1.Config, auth_service_1.AuthService])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.Config, auth_service_1.AuthService])
     ], SelectCompanyService);
     return SelectCompanyService;
-    var _a;
 }());
 exports.SelectCompanyService = SelectCompanyService;
 //# sourceMappingURL=select-company.service.js.map

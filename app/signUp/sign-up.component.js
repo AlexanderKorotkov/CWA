@@ -30,7 +30,7 @@ var SignUpComponent = (function () {
     SignUpComponent.prototype.signUp = function () {
         var _this = this;
         this.signUpService.signUp(this.signUpData).then(function (result) {
-            _this.router.navigate(['/signIn']);
+            _this.router.navigate(['/dashboard/menu']);
             _this.notificationsService.success('Success', "" + result.message, {
                 position: ["bottom", "right"],
                 timeOut: 5000,
@@ -47,10 +47,9 @@ var SignUpComponent = (function () {
             templateUrl: 'sign-up.component.html',
             styleUrls: ['../shared/auth/auth.css']
         }), 
-        __metadata('design:paramtypes', [sign_up_service_1.SignUpService, (typeof (_a = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _a) || Object, (typeof (_b = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [sign_up_service_1.SignUpService, angular2_notifications_1.NotificationsService, router_1.Router])
     ], SignUpComponent);
     return SignUpComponent;
-    var _a, _b;
 }());
 exports.SignUpComponent = SignUpComponent;
 //# sourceMappingURL=sign-up.component.js.map

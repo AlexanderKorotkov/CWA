@@ -23,7 +23,7 @@ export class SelectCompanyComponent implements OnInit{
     ) { }
     ngOnInit() {
         this.currentUser = this.authService.getUserIdentity().user;
-        this.selectedCompany = this.currentUser.currentCompany.companyName;
+        this.selectedCompany = '';
 
         this.selectCompanyService.getUserCompanyList(this.currentUser._id).then(result => {
             this.companyList = result;

@@ -54,10 +54,9 @@ var SignInComponent = (function () {
             templateUrl: 'sign-in.component.html',
             styleUrls: ['../shared/auth/auth.css']
         }), 
-        __metadata('design:paramtypes', [sign_in_service_1.SignInService, (typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object, config_service_1.Config, auth_service_1.AuthService, (typeof (_b = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [sign_in_service_1.SignInService, router_1.Router, config_service_1.Config, auth_service_1.AuthService, angular2_notifications_1.NotificationsService])
     ], SignInComponent);
     return SignInComponent;
-    var _a, _b;
 }());
 exports.SignInComponent = SignInComponent;
 //# sourceMappingURL=sign-in.component.js.map

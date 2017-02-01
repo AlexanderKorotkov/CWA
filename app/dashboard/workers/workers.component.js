@@ -56,10 +56,9 @@ var WorkersComponent = (function () {
             templateUrl: 'workers.component.html',
             entryComponents: [worker_component_1.WorkerComponent]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object, workers_service_1.WorkersService, auth_service_1.AuthService, (typeof (_b = typeof angular2_notifications_1.NotificationsService !== 'undefined' && angular2_notifications_1.NotificationsService) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [router_1.Router, workers_service_1.WorkersService, auth_service_1.AuthService, angular2_notifications_1.NotificationsService])
     ], WorkersComponent);
     return WorkersComponent;
-    var _a, _b;
 }());
 exports.WorkersComponent = WorkersComponent;
 //# sourceMappingURL=workers.component.js.map

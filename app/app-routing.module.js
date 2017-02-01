@@ -17,6 +17,7 @@ var dashboard_component_1 = require('./dashboard/dashboard.component');
 var menu_component_1 = require('./dashboard/menu/menu.component');
 var change_password_component_1 = require('./dashboard/menu/changePassword/change-password.component');
 var select_company_component_1 = require('./dashboard/menu/selectCompany/select-company.component');
+var create_company_component_1 = require('./dashboard/menu/createCompany/create-company.component');
 var workers_component_1 = require('./dashboard/workers/workers.component');
 var add_worker_component_1 = require('./dashboard/workers/add-worker/add-worker.component');
 var worker_details_component_1 = require('./dashboard/workers/worker-details/worker-details.component');
@@ -34,6 +35,7 @@ var routes = [
     },
     { path: 'dashboard/changePassword', component: change_password_component_1.ChangePasswordComponent, canActivate: [auth_service_1.AuthService] },
     { path: 'dashboard/selectCompany', component: select_company_component_1.SelectCompanyComponent, canActivate: [auth_service_1.AuthService] },
+    { path: 'dashboard/createCompany', component: create_company_component_1.CreateCompanyComponent, canActivate: [auth_service_1.AuthService] },
     { path: 'dashboard/addWorker', component: add_worker_component_1.AddWorkerComponent, canActivate: [auth_service_1.AuthService] },
     { path: 'dashboard/workerDetails/:id', component: worker_details_component_1.WorkerDetailsComponent, canActivate: [auth_service_1.AuthService] },
     { path: 'dashboard/workerEdit/:id', component: worker_edit_component_1.WorkerEditComponent, canActivate: [auth_service_1.AuthService] },

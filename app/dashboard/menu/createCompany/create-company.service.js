@@ -13,25 +13,25 @@ var http_1 = require('@angular/http');
 var config_service_1 = require('../../../shared/config/config.service');
 var auth_service_1 = require('../../../shared/auth/auth.service');
 require('rxjs/add/operator/toPromise');
-var ChangePasswordService = (function () {
-    function ChangePasswordService(http, config, authService) {
+var CreateCompanyService = (function () {
+    function CreateCompanyService(http, config, authService) {
         this.http = http;
         this.config = config;
         this.authService = authService;
-        this.changePasswordUrl = this.config.getConfig().apiMainUrl + "/session/updatePassword"; // URL to web api
+        this.createCompanyUrl = this.config.getConfig().apiMainUrl + "/company/create"; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json', 'authorization': this.authService.getAuthorizationHeader() });
     }
-    ChangePasswordService.prototype.updatePassword = function (passwordData, userId) {
-        return this.http.post(this.changePasswordUrl, { passwordData: passwordData, userId: userId }, { headers: this.headers })
+    CreateCompanyService.prototype.createCompany = function (companyData, userId) {
+        return this.http.post(this.createCompanyUrl, { companyData: companyData, userId: userId }, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(function (err) { return Promise.reject(err.json()); });
     };
-    ChangePasswordService = __decorate([
+    CreateCompanyService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http, config_service_1.Config, auth_service_1.AuthService])
-    ], ChangePasswordService);
-    return ChangePasswordService;
+    ], CreateCompanyService);
+    return CreateCompanyService;
 }());
-exports.ChangePasswordService = ChangePasswordService;
-//# sourceMappingURL=change-password.service.js.map
+exports.CreateCompanyService = CreateCompanyService;
+//# sourceMappingURL=create-company.service.js.map
