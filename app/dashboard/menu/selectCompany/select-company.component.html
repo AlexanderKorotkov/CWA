@@ -1,0 +1,11 @@
+
+<div class="container"  >
+    <div *ngIf="companyList">
+        <label class="custom-control custom-radio" *ngFor="let company of companyList, let i = index" >
+            <input id="radio{{i}}" name="radio" type="radio" [(ngModel)]="selectedCompany" class="custom-control-input" value="{{company.companyInfo.companyName}}" (click)="selectCompany(company)">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">{{company.companyInfo.companyName}}</span>
+        </label>
+    </div>
+
+</div>
