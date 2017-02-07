@@ -25,12 +25,12 @@ export class WorkersService {
         private authService: AuthService
     ) { }
 
-    private fetchAllUsersUrl = `${this.config.getConfig().apiMainUrl}/users/`;  // URL to web api
+    private fetchCompanyWorkersUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
     private removeUserUrl = `${this.config.getConfig().apiMainUrl}/users/`;  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    fetchAllUsers(companyId:string) {
-        return this.http.get(`${this.fetchAllUsersUrl}${companyId}/fetchUsers`, {headers: this.headers})
+    fetchCompanyWorkers(companyId:string) {
+        return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/fetchWorkers`, {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));

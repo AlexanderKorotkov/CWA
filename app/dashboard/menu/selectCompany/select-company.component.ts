@@ -23,10 +23,18 @@ export class SelectCompanyComponent implements OnInit{
     ) { }
     ngOnInit() {
         this.currentUser = this.authService.getUserIdentity().user;
-        this.selectedCompany = '';
+
+        console.log(this.currentUser)
+        this.selectedCompany = this.currentUser.currentCompany ? this.currentUser.currentCompany.companyName : '';
 
         this.selectCompanyService.getUserCompanyList(this.currentUser._id).then(result => {
             this.companyList = result;
+            if(!result){
+                this.notificationsService.info(
+                    'Oops',
+                    `You are do not have any companies!`
+                )
+            }
         },(result) => {
             this.notificationsService.error(
                 'Error',
@@ -36,16 +44,17 @@ export class SelectCompanyComponent implements OnInit{
     }
 
     selectCompany(company:any) {
-        // if(this.selectedCompany === company.companyInfo.companyName){
-        //     return false;
-        // }
+        if(this.selectedCompany === company.companyName){
+            return false;
+        }
         this.selectCompanyService.selectCompany(this.currentUser._id, company).then(result => {
-            this.currentUser.currentCompany = result;
+            this.currentUser.currentCompany = result.data.currentCompany;
+            this.currentUser.role = result.data.role;
             this.authService.updateUserIdentity(this.currentUser);
 
             this.notificationsService.success(
                 'Company was changed to :',
-                `${result.companyName}`,
+                `${result.data.currentCompany.companyName}`,
                 {
                     position: ["bottom", "right"],
                     timeOut: 5000,

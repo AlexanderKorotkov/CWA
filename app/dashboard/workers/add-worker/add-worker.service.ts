@@ -14,11 +14,11 @@ export class AddWorkerService {
         private config: Config,
         private authService: AuthService
     ) { }
-    private addWorkerUrl = `${this.config.getConfig().apiMainUrl}/users/create`;  // URL to web api
+    private addWorkerUrl = `${this.config.getConfig().apiMainUrl}/company/addWorker`;  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    addWorker(user:any, currentCompany:any) {
-        return this.http.post(this.addWorkerUrl, {user :user, currentCompany : currentCompany}, {headers: this.headers})
+    addWorker(worker:any, company:any) {
+        return this.http.post(this.addWorkerUrl, {worker :worker, company : company}, {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));

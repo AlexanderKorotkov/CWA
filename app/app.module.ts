@@ -3,6 +3,7 @@ import { BrowserModule }           from '@angular/platform-browser';
 import { FormsModule }             from '@angular/forms';
 import { HttpModule }              from '@angular/http';
 import {SimpleNotificationsModule} from 'angular2-notifications';
+import {NotificationsService}      from 'angular2-notifications';
 
 import {HttpInterceptorModule}     from 'angular2-http-interceptor';
 import {Interceptor}               from './http-interceptor';
@@ -73,7 +74,8 @@ import { WorkerEditService }       from './dashboard/workers/worker-edit/worker-
         WorkersService,
         AddWorkerService,
         WorkerEditService,
-        CreateCompanyService
+        CreateCompanyService,
+        NotificationsService
     ],
     bootstrap: [ AppComponent ]
 })

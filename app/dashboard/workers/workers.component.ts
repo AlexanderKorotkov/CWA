@@ -28,16 +28,25 @@ export class WorkersComponent implements OnInit{
     ngOnInit() {
         this.currentUser = this.authService.getUserIdentity().user;
         this.canDelete = false;
+        console.log(this.currentUser)
 
-        this.workersService.fetchAllUsers(this.currentUser.currentCompany.companyId).then(result => {
-            this.workers = result.data;
-            this.authService.getUserIdentity()
-        },(result) => {
-            this.notificationsService.error(
-                'Error',
-                `${result.error}`
-            )
-        }) ;
+        if(!this.currentUser.currentCompany){
+            this.notificationsService.alert(
+                'Warning',
+                `Please select a company`
+            );
+            this.route.navigate([`${'/dashboard/selectCompany'}`]);
+        }else{
+            this.workersService.fetchCompanyWorkers(this.currentUser.currentCompany.companyId).then(result => {
+                this.workers = result.data;
+                this.authService.getUserIdentity()
+            },(result) => {
+                this.notificationsService.error(
+                    'Error',
+                    `${result.error}`
+                )
+            }) ;
+        }
 
     }
 
