@@ -38,11 +38,7 @@ export class SignInComponent implements OnInit{
     signIn() {
         this.signInService.signIn(this.signInData).then(result => {
             if(this.authService.setUserIdentity(result)){
-                if(_.size(result.currentCompany) === 0){
-                    this.route.navigate(['/dashboard']);
-                }else{
-                    this.route.navigate(['/dashboard']);
-                }
+                this.route.navigate(['/dashboard']);
             }
         },(result) => {
             this.notificationsService.error(

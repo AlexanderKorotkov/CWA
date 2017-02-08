@@ -17,7 +17,7 @@ export class WorkersComponent implements OnInit{
 
     currentUser : any;
     workers:any;
-    canDelete:boolean;
+    canDelete:boolean = false;
 
     constructor(
         private route: Router,
@@ -27,20 +27,20 @@ export class WorkersComponent implements OnInit{
     ) { }
     ngOnInit() {
         this.currentUser = this.authService.getUserIdentity().user;
-        this.canDelete = false;
-        console.log(this.currentUser)
 
         if(!this.currentUser.currentCompany){
             this.notificationsService.alert(
                 'Warning',
                 `Please select a company`
             );
-            this.route.navigate([`${'/dashboard/selectCompany'}`]);
         }else{
-            this.workersService.fetchCompanyWorkers(this.currentUser.currentCompany.companyId).then(result => {
+            this.workersService.fetchCompanyWorkers(this.currentUser.currentCompany.companyId, this.currentUser._id).then(result => {
                 this.workers = result.data;
                 this.authService.getUserIdentity()
             },(result) => {
+                this.currentUser.currentCompany = null;
+                this.currentUser.role = null;
+                this.authService.updateUserIdentity(this.currentUser);
                 this.notificationsService.error(
                     'Error',
                     `${result.error}`
@@ -50,8 +50,8 @@ export class WorkersComponent implements OnInit{
 
     }
 
-    removeWorker(worker:any) {
-        this.workersService.removeUser(this.currentUser.currentCompany.companyId, worker).then(result => {
+    deleteWorker(worker:any) {
+        this.workersService.deleteWorker(this.currentUser.currentCompany.companyId, worker).then(result => {
             this.workers.splice(this.workers.indexOf(worker), 1);
             this.notificationsService.success(
                 'Success',
@@ -67,11 +67,16 @@ export class WorkersComponent implements OnInit{
 
     goToWorkerDetails(worker:any) {
         this.workersService.currentWorker = worker;
-        this.route.navigate([`${'/dashboard/workerDetails/'}${worker.userId}`])
+        this.route.navigate([`${'/dashboard/workerDetails/'}`])
     }
 
     showDeleteButton(){
         this.canDelete = !this.canDelete;
+    };
+
+    logOut(){
+        this.authService.removeUserIdentity();
+        this.route.navigate([`${'/'}`])
     };
 
 }

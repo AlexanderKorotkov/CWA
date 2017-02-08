@@ -3,7 +3,7 @@
     <h2>{{worker.name}}</h2>
     <p>{{worker.surname}}</p>
     <i class="icon ion-chevron-right icon-accessory"></i>
-    <button *ngIf="canDelete" (click)="deleteWorker($event, worker)" type="button" class="btn btn-primary">
+    <button *ngIf="canDelete" (click)="remove($event, worker)" type="button" class="btn btn-primary">
         Single toggle
     </button>
 </a>

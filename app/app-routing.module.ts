@@ -30,8 +30,8 @@ const routes: Routes = [
     { path: 'dashboard/selectCompany',  component: SelectCompanyComponent, canActivate: [AuthService] },
     { path: 'dashboard/createCompany',  component: CreateCompanyComponent, canActivate: [AuthService] },
     { path: 'dashboard/addWorker',  component: AddWorkerComponent, canActivate: [AuthService] },
-    { path: 'dashboard/workerDetails/:id',  component: WorkerDetailsComponent, canActivate: [AuthService] },
-    { path: 'dashboard/workerEdit/:id',  component: WorkerEditComponent, canActivate: [AuthService] },
+    { path: 'dashboard/workerDetails',  component: WorkerDetailsComponent, canActivate: [AuthService] },
+    { path: 'dashboard/workerEdit',  component: WorkerEditComponent, canActivate: [AuthService] },
     { path: '**', redirectTo: 'dashboard/menu', pathMatch: 'full'},
 ];
 @NgModule({

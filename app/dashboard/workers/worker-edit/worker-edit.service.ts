@@ -15,14 +15,11 @@ export class WorkerEditService {
         private authService: AuthService
     ) { }
 
-    private WorkerEditUrl = `${this.config.getConfig().apiMainUrl}/users/`;  // URL to web api
+    private WorkerEditUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    updateWorker(user:any, companyId:string, userId:string) {
-        console.log(user)
-        console.log(companyId)
-        console.log(userId)
-        return this.http.post(`${this.WorkerEditUrl}${companyId}/update`, {user :user, userId: userId}, {headers: this.headers})
+    updateWorker(worker:any, companyId:string) {
+        return this.http.post(`${this.WorkerEditUrl}${companyId}/updateWorker`, {worker :worker}, {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));

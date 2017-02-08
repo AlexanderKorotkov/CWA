@@ -8,13 +8,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class WorkerComponent{
     @Input() worker: any;
     @Input() canDelete: boolean;
-    @Output() removeWorker = new EventEmitter();
+    @Output() deleteWorker = new EventEmitter();
     @Output() goToWorkerDetails = new EventEmitter();
     default_image = 'img/unknown1.png';
 
-    deleteWorker(event:any, worker:any){
+    remove(event:any, worker:any){
         event.stopPropagation();
-        this.removeWorker.emit(worker)
+        this.deleteWorker.emit(worker)
     }
 
     getImage(imageUrl:any){

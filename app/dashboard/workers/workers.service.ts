@@ -26,18 +26,18 @@ export class WorkersService {
     ) { }
 
     private fetchCompanyWorkersUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
-    private removeUserUrl = `${this.config.getConfig().apiMainUrl}/users/`;  // URL to web api
+    private removeUserUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    fetchCompanyWorkers(companyId:string) {
-        return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/fetchWorkers`, {headers: this.headers})
+    fetchCompanyWorkers(companyId:string, userId:string) {
+        return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/${userId}/fetchWorkers`, {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 
-    removeUser(companyId:string, worker:any) {
-        return this.http.post(`${this.removeUserUrl}${companyId}/removeUser`, {user:worker}, {headers: this.headers})
+    deleteWorker(companyId:string, worker:any) {
+        return this.http.post(`${this.removeUserUrl}${companyId}/deleteWorker`, {worker:worker}, {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));

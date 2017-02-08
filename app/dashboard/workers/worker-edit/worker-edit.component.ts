@@ -34,10 +34,9 @@ export class WorkerEditComponent implements OnInit{
         bDay: string;
     };
     currentUser : any;
-    isEdit : boolean;
+    isEdit : boolean = true;
 
     ngOnInit() {
-        this.isEdit = true;
         this.currentUser = this.authService.getUserIdentity().user;
         if(this.workersService.currentWorker){
             this.workerInfo = this.workersService.currentWorker
@@ -46,7 +45,7 @@ export class WorkerEditComponent implements OnInit{
         }
     }
     updateWorker(){
-        this.workerEditService.updateWorker(this.workerInfo, this.currentUser.currentCompany.companyId, this.route.snapshot.params['id']).then(() => {
+        this.workerEditService.updateWorker(this.workerInfo, this.currentUser.currentCompany.companyId).then(() => {
             this.location.back();
             this.notificationsService.success(
                 'Success',
