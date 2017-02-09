@@ -24,23 +24,24 @@ export class SelectCompanyComponent implements OnInit{
     ngOnInit() {
         this.currentUser = this.authService.getUserIdentity().user;
 
-        console.log(this.currentUser)
         this.selectedCompany = this.currentUser.currentCompany ? this.currentUser.currentCompany.companyName : '';
-
-        this.selectCompanyService.getUserCompanyList(this.currentUser._id).then(result => {
-            this.companyList = result;
-            if(!result){
-                this.notificationsService.info(
-                    'Oops',
-                    `You are do not have any companies!`
+        this.selectCompanyService.getUserCompanyList(this.currentUser._id).subscribe(
+            result => {
+                this.companyList = result;
+                if(!result){
+                    this.notificationsService.info(
+                        'Oops',
+                        `You are do not have any companies!`
+                    )
+                }
+            },
+            err => {
+                this.notificationsService.error(
+                    'Error',
+                    `${err}`
                 )
             }
-        },(result) => {
-            this.notificationsService.error(
-                'Error',
-                `${result.error}`
-            )
-        }) ;
+        );
     }
 
     selectCompany(company:any) {

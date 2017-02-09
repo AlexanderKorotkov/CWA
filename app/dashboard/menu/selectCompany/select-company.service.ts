@@ -4,7 +4,11 @@ import { Headers, Http } from '@angular/http';
 import { Config } from '../../../shared/config/config.service';
 import { AuthService } from '../../../shared/auth/auth.service';
 
-import 'rxjs/add/operator/toPromise';
+import {Observable} from 'rxjs/Rx';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SelectCompanyService {
@@ -18,11 +22,11 @@ export class SelectCompanyService {
     private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
 
-    getUserCompanyList(userId:string) {
-        return this.http.get(`${this.getUserCompanyListUrl}${userId}/getUserCompanyList`, {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
-            .catch(err =>  Promise.reject(err.json()));
+    getUserCompanyList(userId:string):Observable<string> {
+        return this.http.get(`${this.getUserCompanyListUrl}${userId}/getUserCompanyList`)
+            .map((res) => res.json())
+            //...errors if any
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     selectCompany(userId:string, company:any) {

@@ -38,9 +38,6 @@ export class WorkersComponent implements OnInit{
                 this.workers = result.data;
                 this.authService.getUserIdentity()
             },(result) => {
-                this.currentUser.currentCompany = null;
-                this.currentUser.role = null;
-                this.authService.updateUserIdentity(this.currentUser);
                 this.notificationsService.error(
                     'Error',
                     `${result.error}`

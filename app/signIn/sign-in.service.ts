@@ -12,10 +12,9 @@ export class SignInService {
     ) { }
 
     private signInUrl = `${this.config.getConfig().apiMainUrl}/session/signIn`;  // URL to web api
-    private headers = new Headers({'Content-Type': 'application/json'});
 
     signIn(signInData:any) {
-        return this.http.post(this.signInUrl, signInData, {headers: this.headers})
+        return this.http.post(this.signInUrl, signInData)
             .toPromise()
             .then(response => response.json())
             .catch(err =>  Promise.reject(err.json()));

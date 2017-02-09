@@ -5,8 +5,8 @@ import { HttpModule }              from '@angular/http';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotificationsService}      from 'angular2-notifications';
 
-import {HttpInterceptorModule}     from 'angular2-http-interceptor';
-import {Interceptor}               from './http-interceptor';
+import {Http} from '@angular/http';
+import {HttpInterceptorService}               from './http-interceptor';
 
 import { AppRoutingModule }        from './app-routing.module';
 
@@ -45,8 +45,7 @@ import { WorkerEditService }       from './dashboard/workers/worker-edit/worker-
         FormsModule,
         AppRoutingModule,
         HttpModule,
-        SimpleNotificationsModule,
-        HttpInterceptorModule.withInterceptors([Interceptor])
+        SimpleNotificationsModule
     ],
     declarations: [
         AppComponent,
@@ -75,7 +74,8 @@ import { WorkerEditService }       from './dashboard/workers/worker-edit/worker-
         AddWorkerService,
         WorkerEditService,
         CreateCompanyService,
-        NotificationsService
+        NotificationsService,
+        { provide: Http, useClass: HttpInterceptorService }
     ],
     bootstrap: [ AppComponent ]
 })

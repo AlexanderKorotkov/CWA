@@ -1,35 +1,50 @@
-import {Request, Response} from '@angular/http';
-import {HttpInterceptor} from 'angular2-http-interceptor';
-import {Injectable} from '@angular/core';
 
+import { Injectable } from '@angular/core';
+import { Request, XHRBackend, RequestOptions, Response, Http, RequestOptionsArgs, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { AuthService } from './shared/auth/auth.service';
-
-import {Observable} from 'rxjs';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class Interceptor implements HttpInterceptor {
-    constructor(
-        private authService: AuthService,
-        private router: Router
-    ) { }
+export class HttpInterceptorService extends Http {
 
-    // before(request: Request): Request {
-    //     return request;
-    // }
-    //
-    // after(res: Observable<Response>): Observable<any> {
-    //     res.toPromise().then(data =>{
-    //         if(data.status === 403){
-    //             if (this.authService.isAuthenticated()) {
-    //                 this.authService.removeUserIdentity();
-    //             }
-    //             this.router.navigate(['/signIn']);
-    //         }
-    //         return res;
-    //     });
-    //     return;
-    // }
+    constructor(backend: XHRBackend, defaultOptions: RequestOptions, private router: Router, private authService: AuthService) {
+        super(backend, defaultOptions);
+    }
+
+    request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
+        //do whatever
+        if (typeof url === 'string') {
+            if (!options) {
+                options = { headers: new Headers() };
+            }
+            this.setHeaders(options);
+        } else {
+            this.setHeaders(url);
+        }
+
+        return super.request(url, options).catch(this.catchErrors());
+    }
+
+    private catchErrors() {
+        return (res: Response) => {
+            if (res.status === 401 || res.status === 403) {
+                //handle authorization errors
+                //in this example I am navigating to logout route which brings the login screen
+                if (this.authService.isAuthenticated()) {
+                    this.authService.removeUserIdentity();
+                }
+                this.router.navigate(['/signIn']);
+            }
+            return Observable.throw(res);
+        };
+    }
+
+    private setHeaders(objectToSetHeadersTo: Request | RequestOptionsArgs) {
+        //add whatever header that you need to every request
+        objectToSetHeadersTo.headers.set('Content-Type', 'application/json');
+    }
 
 }
