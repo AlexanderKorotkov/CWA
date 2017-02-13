@@ -46,7 +46,7 @@ export class AddWorkerComponent implements OnInit{
         this.currentUser = this.authService.getUserIdentity().user;
     }
     sendUser(){
-        this.addWorkerService.addWorker(this.workerInfo, this.currentUser.currentCompany).then(() => {
+        this.addWorkerService.addWorker(this.workerInfo, this.currentUser.currentCompany).subscribe(() => {
             this.route.navigate(['/dashboard/workers']);
         },(result) => {
             this.notificationsService.error(

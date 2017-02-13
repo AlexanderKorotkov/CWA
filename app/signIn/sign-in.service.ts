@@ -1,8 +1,12 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { Config } from '../shared/config/config.service';
+import { Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Config } from '../shared/config/config.service';
+import {Observable} from 'rxjs/Rx';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SignInService {
@@ -13,10 +17,9 @@ export class SignInService {
 
     private signInUrl = `${this.config.getConfig().apiMainUrl}/session/signIn`;  // URL to web api
 
-    signIn(signInData:any) {
+    signIn(signInData:any): Observable<any> {
         return this.http.post(this.signInUrl, signInData)
-            .toPromise()
-            .then(response => response.json())
+            .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 

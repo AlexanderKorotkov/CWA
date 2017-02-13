@@ -48,7 +48,7 @@ export class SelectCompanyComponent implements OnInit{
         if(this.selectedCompany === company.companyName){
             return false;
         }
-        this.selectCompanyService.selectCompany(this.currentUser._id, company).then(result => {
+        this.selectCompanyService.selectCompany(this.currentUser._id, company).subscribe(result => {
             this.currentUser.currentCompany = result.data.currentCompany;
             this.currentUser.role = result.data.role;
             this.authService.updateUserIdentity(this.currentUser);

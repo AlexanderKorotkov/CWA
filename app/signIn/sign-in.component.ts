@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit{
     }
 
     signIn() {
-        this.signInService.signIn(this.signInData).then(result => {
+        this.signInService.signIn(this.signInData).subscribe(result => {
             if(this.authService.setUserIdentity(result)){
                 this.route.navigate(['/dashboard']);
             }

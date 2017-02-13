@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit{
     }
 
     signUp() {
-        this.signUpService.signUp(this.signUpData).then(result => {
+        this.signUpService.signUp(this.signUpData).subscribe(result => {
             this.router.navigate(['/signIn']);
             this.notificationsService.success(
                 'Success',

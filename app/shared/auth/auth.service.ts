@@ -80,7 +80,8 @@ export class AuthService implements CanActivate {
 
     getAuthorizationHeader () {
         this.getIdentity();
-        return 'Bearer ' + this.identity ? this.identity.token : null;
+
+        return 'Bearer ' + !this.identity ? null : this.identity.token;
     }
 }
 

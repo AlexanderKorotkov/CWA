@@ -31,7 +31,7 @@ export class CreateCompanyComponent implements OnInit{
     }
 
     create() {
-        this.createCompanyService.createCompany(this.companyData, this.currentUser._id).then(result => {
+        this.createCompanyService.createCompany(this.companyData, this.currentUser._id).subscribe(result => {
             this.router.navigate(['/dashboard/menu']);
             this.notificationsService.success(
                 'Success',

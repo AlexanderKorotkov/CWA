@@ -45,6 +45,7 @@ export class HttpInterceptorService extends Http {
     private setHeaders(objectToSetHeadersTo: Request | RequestOptionsArgs) {
         //add whatever header that you need to every request
         objectToSetHeadersTo.headers.set('Content-Type', 'application/json');
+        objectToSetHeadersTo.headers.set('authorization', `${this.authService.getAuthorizationHeader()}`);
     }
 
 }

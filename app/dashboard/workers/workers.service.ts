@@ -1,10 +1,12 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http } from '@angular/http';
 
 import { Config } from '../../shared/config/config.service';
-import { AuthService } from '../../shared/auth/auth.service';
+import {Observable} from 'rxjs/Rx';
 
-import 'rxjs/add/operator/toPromise';
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class WorkersService {
@@ -21,25 +23,21 @@ export class WorkersService {
 
     constructor(
         private http: Http,
-        private config: Config,
-        private authService: AuthService
+        private config: Config
     ) { }
 
     private fetchCompanyWorkersUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
     private removeUserUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
-    private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    fetchCompanyWorkers(companyId:string, userId:string) {
-        return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/${userId}/fetchWorkers`, {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
+    fetchCompanyWorkers(companyId:string, userId:string):Observable<any> {
+        return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/${userId}/fetchWorkers`)
+            .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 
-    deleteWorker(companyId:string, worker:any) {
-        return this.http.post(`${this.removeUserUrl}${companyId}/deleteWorker`, {worker:worker}, {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
+    deleteWorker(companyId:string, worker:any):Observable<any> {
+        return this.http.post(`${this.removeUserUrl}${companyId}/deleteWorker`, {worker:worker})
+            .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 

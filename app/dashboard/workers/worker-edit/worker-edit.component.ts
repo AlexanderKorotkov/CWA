@@ -45,7 +45,7 @@ export class WorkerEditComponent implements OnInit{
         }
     }
     updateWorker(){
-        this.workerEditService.updateWorker(this.workerInfo, this.currentUser.currentCompany.companyId).then(() => {
+        this.workerEditService.updateWorker(this.workerInfo, this.currentUser.currentCompany.companyId).subscribe(() => {
             this.location.back();
             this.notificationsService.success(
                 'Success',

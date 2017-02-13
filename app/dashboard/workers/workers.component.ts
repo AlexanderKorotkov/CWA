@@ -34,7 +34,7 @@ export class WorkersComponent implements OnInit{
                 `Please select a company`
             );
         }else{
-            this.workersService.fetchCompanyWorkers(this.currentUser.currentCompany.companyId, this.currentUser._id).then(result => {
+            this.workersService.fetchCompanyWorkers(this.currentUser.currentCompany.companyId, this.currentUser._id).subscribe(result => {
                 this.workers = result.data;
                 this.authService.getUserIdentity()
             },(result) => {
@@ -48,7 +48,7 @@ export class WorkersComponent implements OnInit{
     }
 
     deleteWorker(worker:any) {
-        this.workersService.deleteWorker(this.currentUser.currentCompany.companyId, worker).then(result => {
+        this.workersService.deleteWorker(this.currentUser.currentCompany.companyId, worker).subscribe(result => {
             this.workers.splice(this.workers.indexOf(worker), 1);
             this.notificationsService.success(
                 'Success',

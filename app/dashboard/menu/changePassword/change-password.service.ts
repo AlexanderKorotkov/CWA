@@ -1,26 +1,25 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http } from '@angular/http';
 
 import { Config } from '../../../shared/config/config.service';
-import { AuthService } from '../../../shared/auth/auth.service';
+import {Observable} from 'rxjs/Rx';
 
-import 'rxjs/add/operator/toPromise';
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ChangePasswordService {
     constructor(
         private http: Http,
-        private config: Config,
-        private authService: AuthService
+        private config: Config
     ) { }
 
     private changePasswordUrl = `${this.config.getConfig().apiMainUrl}/session/updatePassword`;  // URL to web api
-    private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    updatePassword(passwordData:any, userId:string) {
-        return this.http.post(this.changePasswordUrl, {passwordData:passwordData, userId:userId}, {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
+    updatePassword(passwordData:any, userId:string):Observable<any> {
+        return this.http.post(this.changePasswordUrl, {passwordData:passwordData, userId:userId})
+            .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 

@@ -1,26 +1,25 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Http } from '@angular/http';
 
 import { Config } from '../../../shared/config/config.service';
-import { AuthService } from '../../../shared/auth/auth.service';
+import {Observable} from 'rxjs/Rx';
 
-import 'rxjs/add/operator/toPromise';
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class AddWorkerService {
 
     constructor(
         private http: Http,
-        private config: Config,
-        private authService: AuthService
+        private config: Config
     ) { }
     private addWorkerUrl = `${this.config.getConfig().apiMainUrl}/company/addWorker`;  // URL to web api
-    private headers = new Headers({'Content-Type': 'application/json','authorization': this.authService.getAuthorizationHeader()});
 
-    addWorker(worker:any, company:any) {
-        return this.http.post(this.addWorkerUrl, {worker :worker, company : company}, {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
+    addWorker(worker:any, company:any): Observable<any> {
+        return this.http.post(this.addWorkerUrl, {worker :worker, company : company})
+            .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }
 
