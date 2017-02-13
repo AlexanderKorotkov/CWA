@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Config } from '../../../shared/config/config.service';
+import { ConfigService } from '../../../shared/config/config.service';
 import {Observable} from 'rxjs/Rx';
 
 // Import RxJs required methods
@@ -13,9 +13,9 @@ export class AddWorkerService {
 
     constructor(
         private http: Http,
-        private config: Config
+        private configService: ConfigService
     ) { }
-    private addWorkerUrl = `${this.config.getConfig().apiMainUrl}/company/addWorker`;  // URL to web api
+    private addWorkerUrl = `${this.configService.getConfig().apiMainUrl}/company/addWorker`;  // URL to web api
 
     addWorker(worker:any, company:any): Observable<any> {
         return this.http.post(this.addWorkerUrl, {worker :worker, company : company})

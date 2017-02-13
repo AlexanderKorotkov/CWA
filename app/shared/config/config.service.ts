@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class Config {
+export class ConfigService {
     getConfig() {
         return {
              "ver":"1.0.0",

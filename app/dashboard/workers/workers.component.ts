@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit }    from '@angular/core';
+import { Router }               from '@angular/router';
 
-import { AuthService } from '../../shared/auth/auth.service';
-import {NotificationsService} from 'angular2-notifications';
+import { AuthService }          from '../../shared/auth/auth.service';
+import {NotificationsService}   from 'angular2-notifications';
 
-import { WorkersService } from './workers.service';
-import { WorkerComponent } from './worker/worker.component';
+import { WorkersService }       from './workers.service';
+import { WorkerComponent }      from './worker/worker.component';
 
 @Component({
     moduleId: module.id,

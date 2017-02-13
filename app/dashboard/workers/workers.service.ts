@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Config } from '../../shared/config/config.service';
+import { ConfigService } from '../../shared/config/config.service';
 import {Observable} from 'rxjs/Rx';
 
 // Import RxJs required methods
@@ -23,11 +23,11 @@ export class WorkersService {
 
     constructor(
         private http: Http,
-        private config: Config
+        private configService: ConfigService
     ) { }
 
-    private fetchCompanyWorkersUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
-    private removeUserUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
+    private fetchCompanyWorkersUrl = `${this.configService.getConfig().apiMainUrl}/company/`;  // URL to web api
+    private removeUserUrl = `${this.configService.getConfig().apiMainUrl}/company/`;  // URL to web api
 
     fetchCompanyWorkers(companyId:string, userId:string):Observable<any> {
         return this.http.get(`${this.fetchCompanyWorkersUrl}${companyId}/${userId}/fetchWorkers`)

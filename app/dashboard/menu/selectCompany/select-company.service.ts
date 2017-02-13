@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Config } from '../../../shared/config/config.service';
+import { ConfigService } from '../../../shared/config/config.service';
 
 import {Observable} from 'rxjs/Rx';
 
@@ -13,10 +13,10 @@ import 'rxjs/add/operator/catch';
 export class SelectCompanyService {
     constructor(
         private http: Http,
-        private config: Config
+        private configService: ConfigService
     ) { }
-    private getUserCompanyListUrl = `${this.config.getConfig().apiMainUrl}/company/`;  // URL to web api
-    private selectCompanyUrl = `${this.config.getConfig().apiMainUrl}/company/selectCompany`;  // URL to web api
+    private getUserCompanyListUrl = `${this.configService.getConfig().apiMainUrl}/company/`;  // URL to web api
+    private selectCompanyUrl = `${this.configService.getConfig().apiMainUrl}/company/selectCompany`;  // URL to web api
 
     getUserCompanyList(userId:string):Observable<string> {
         return this.http.get(`${this.getUserCompanyListUrl}${userId}/getUserCompanyList`)

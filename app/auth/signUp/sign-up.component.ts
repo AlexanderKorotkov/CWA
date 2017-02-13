@@ -10,7 +10,7 @@ import { SignUpFields } from './sign-up-fields';
     moduleId: module.id,
     selector: 'sign-up',
     templateUrl: 'sign-up.component.html',
-    styleUrls: ['../shared/auth/auth.css']
+    styleUrls: ['../../shared/auth/auth.css']
 })
 export class SignUpComponent implements OnInit{
     signUpData: SignUpFields;

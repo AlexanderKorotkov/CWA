@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
-import { Config } from '../../../shared/config/config.service';
+import { ConfigService } from '../../../shared/config/config.service';
 
 import {Observable} from 'rxjs/Rx';
 
@@ -13,10 +13,10 @@ import 'rxjs/add/operator/catch';
 export class CreateCompanyService {
     constructor(
         private http: Http,
-        private config: Config
+        private configService: ConfigService
     ) { }
 
-    private createCompanyUrl = `${this.config.getConfig().apiMainUrl}/company/create`;  // URL to web api
+    private createCompanyUrl = `${this.configService.getConfig().apiMainUrl}/company/create`;  // URL to web api
 
     createCompany(companyData:any, userId:string):Observable<any> {
         return this.http.post(this.createCompanyUrl, {companyData:companyData, userId:userId})
