@@ -33,7 +33,7 @@ export class ChangePasswordComponent implements OnInit{
 
     updatePassword() {
         this.changePasswordService.updatePassword(this.passwordData, this.currentUser._id).subscribe(result => {
-            this.router.navigate(['/dashboard/menu']);
+            this.router.navigate(['/menu']);
             this.notificationsService.success(
                 'Success',
                 `${result.message}`,

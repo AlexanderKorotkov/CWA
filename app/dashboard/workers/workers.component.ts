@@ -64,7 +64,7 @@ export class WorkersComponent implements OnInit{
 
     goToWorkerDetails(worker:any) {
         this.workersService.currentWorker = worker;
-        this.route.navigate([`${'/dashboard/workerDetails/'}`])
+        this.route.navigate([`${'/workerDetails/'}`])
     }
 
     showDeleteButton(){

@@ -5,10 +5,16 @@ import { AuthService }             from '../shared/auth/auth.service';
 
 import { DashboardComponent }      from './dashboard.component';
 
+import { WorkersComponent }         from './workers/workers.component';
+import { MenuComponent }            from './menu/menu.component';
+
 
 const routes: Routes = [
-    { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthService],
-
+    { path: '',  component: DashboardComponent, canActivate: [AuthService],
+        children: [
+            { path: 'workers', component: WorkersComponent, canActivate: [AuthService] },
+            { path: 'menu',  component: MenuComponent, canActivate: [AuthService] },
+        ],
     }
 
 

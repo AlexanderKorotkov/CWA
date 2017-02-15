@@ -47,7 +47,7 @@ export class AddWorkerComponent implements OnInit{
     }
     sendUser(){
         this.addWorkerService.addWorker(this.workerInfo, this.currentUser.currentCompany).subscribe(() => {
-            this.route.navigate(['/dashboard/workers']);
+            this.route.navigate(['/workers']);
         },(result) => {
             this.notificationsService.error(
                 'Error',

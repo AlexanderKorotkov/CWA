@@ -4,7 +4,9 @@ import { Component } from '@angular/core';
 @Component({
     moduleId: module.id,
     selector: 'my-app',
-    template: `<router-outlet></router-outlet>
+    template: `<div>DGDGDGDGDJGBDJHFGDHF</div>
+                <router-outlet></router-outlet>
+                
                 <simple-notifications [options]="options"></simple-notifications>`
 
 })
