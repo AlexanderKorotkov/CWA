@@ -2,9 +2,13 @@
         <form action="">
             <div class="list" *ngIf="workerInfo">
 
+                <div class="form-group">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Single</span>
 
-                <!--<input type="file" name="photo" ngf-select="onFileSelect($files)" multiple>-->
-
+                        <input type="file" (change)="onFileChange($event)" ng2FileSelect [uploader]="uploader" />
+                    </label>
+                </div>
                 <div class="form-group">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">First Name</span>

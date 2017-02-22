@@ -18,7 +18,7 @@ export class AddWorkerService {
     private addWorkerUrl = `${this.configService.getConfig().apiMainUrl}/company/addWorker`;  // URL to web api
 
     addWorker(worker:any, company:any): Observable<any> {
-        return this.http.post(this.addWorkerUrl, {worker :worker, company : company})
+        return this.http.post(this.addWorkerUrl, {worker :worker, company : company} )
             .map(response => response.json())
             .catch(err =>  Promise.reject(err.json()));
     }

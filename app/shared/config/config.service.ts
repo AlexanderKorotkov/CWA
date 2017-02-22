@@ -13,3 +13,4 @@ export class ConfigService {
     }
 }
 // "downloadUrl": "http://localhost:9000",
+// "downloadUrl": "https://still-fjord-48398.herokuapp.com/",

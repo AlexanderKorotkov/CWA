@@ -1,5 +1,7 @@
 import { NgModule }                from '@angular/core';
 
+import { FileSelectDirective }     from 'ng2-file-upload';
+
 import {SharedModule}              from '../../shared/shared.module';
 
 import { WorkersRoutingModule }    from './workers-routing.module';
@@ -26,7 +28,8 @@ import { WorkerEditService }       from './worker-edit/worker-edit.service';
         WorkerComponent,
         AddWorkerComponent,
         WorkerDetailsComponent,
-        WorkerEditComponent
+        WorkerEditComponent,
+        FileSelectDirective
     ],
     providers: [
         WorkersService,

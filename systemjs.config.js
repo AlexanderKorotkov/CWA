@@ -24,12 +24,13 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'rxjs':                      'node_modules/rxjs',
-            'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-            '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
-            'lodash': 'node_modules/lodash/lodash.js',
-            'angular2-notifications': 'node_modules/angular2-notifications',
-            'angular2-http-interceptor': 'node_modules/angular2-http-interceptor'
+            'rxjs':                         'node_modules/rxjs',
+            'angular-in-memory-web-api':    'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+            '@ng-bootstrap/ng-bootstrap':   'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+            'lodash':                       'npm:lodash/lodash.js',
+            'angular2-notifications':       'npm:angular2-notifications',
+            'angular2-http-interceptor':    'npm:angular2-http-interceptor',
+            'ng2-file-upload':              'npm:ng2-file-upload/bundles/ng2-file-upload.umd.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
