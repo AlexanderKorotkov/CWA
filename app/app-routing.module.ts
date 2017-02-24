@@ -5,7 +5,7 @@ import { LandingComponent }        from './landing/landing.component';
 
 const routes: Routes = [
     { path: '',  component: LandingComponent },
-    { path: '**', redirectTo: 'dashboard/menu', pathMatch: 'full'},
+    { path: '**', redirectTo: 'menu', pathMatch: 'full'},
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
