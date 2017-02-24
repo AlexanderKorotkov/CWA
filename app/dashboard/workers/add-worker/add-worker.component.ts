@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FileUploader } from 'ng2-file-upload';
-
 import { AuthService } from '../../../shared/auth/auth.service';
 import {NotificationsService} from 'angular2-notifications';
 
-import { ConfigService } from '../../../shared/config/config.service';
 import { AddWorkerService } from './add-worker.service';
+import { UploadAvatarService } from '../shared/upload-avatar.service';
 
 @Component({
     moduleId: module.id,
@@ -20,16 +18,10 @@ export class AddWorkerComponent implements OnInit{
         private router: Router,
         private addWorkerService: AddWorkerService,
         private authService: AuthService,
-        private configService: ConfigService,
+        private uploadAvatarService: UploadAvatarService,
         private notificationsService: NotificationsService
     ) { }
-
-
-    public uploader:FileUploader = new FileUploader({
-        url:`${this.configService.getConfig().apiMainUrl}/company/addWorker`,
-        authToken:this.authService.getUserIdentity().token
-    });
-
+    uploader: any;
     workerInfo: {
         name: string;
         surname: string;
@@ -41,9 +33,9 @@ export class AddWorkerComponent implements OnInit{
         bDay: string;
     };
     currentUser : any;
-    target:any;
 
     ngOnInit() {
+
         this.workerInfo = {
             name: '',
             surname: '',
@@ -56,59 +48,28 @@ export class AddWorkerComponent implements OnInit{
         };
         this.currentUser = this.authService.getUserIdentity().user;
 
-        this.uploader.onAfterAddingFile = (item => {
-            if(this.uploader.queue.length > 1){
-                this.uploader.queue[0].remove();
-            }
-            if(item.file.type !== 'image/jpeg' && item.file.type !== 'image/png'){
-                this.notificationsService.error(
-                    'Error',
-                    `File type is incorrect please use : png or jpg`
-                );
-                this.uploader.removeFromQueue(item);
-                if(this.target){
-                    this.target.value = '';
-                }
-            }
+        this.uploader = this.uploadAvatarService.uploader;
+        this.uploader.options.url = this.uploadAvatarService.setUploaderUrl('addWorker');
 
+        this.uploader.onAfterAddingFile = ((item:any) => {
+            this.uploadAvatarService.onAfterAddingFile(item);
         });
 
     }
 
     onFileChange(event:any) {
-        this.target = event.target || event.srcElement;
+        this.uploadAvatarService.target = event.target || event.srcElement;
     }
 
     sendUser(){
         if(this.uploader.queue[0]){
             this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
-                fileItem.withCredentials = false;
-                form.append('worker',JSON.stringify(this.workerInfo));
-                form.append('company',JSON.stringify(this.currentUser.currentCompany));
+                this.uploadAvatarService.onBuildItemForm(fileItem, form, this.workerInfo, this.currentUser.currentCompany);
             };
 
-            this.uploader.queue[0].upload();
+            this.uploadAvatarService.uploadFile(this.uploader.queue[0]);
             this.uploader.onCompleteItem = (item:any, response:any, status:any) => {
-                if (status === 401 || status === 403) {
-                    if (this.authService.isAuthenticated()) {
-                        this.authService.removeUserIdentity();
-                    }
-                    this.router.navigate(['/signIn']);
-                }
-                if(status === 200 ){
-                    this.notificationsService.success(
-                        'Success',
-                        `Worker was created`
-                    );
-                    this.router.navigate(['/workers']);
-                }
-                if(status === 400 ){
-                    response = JSON.parse(response);
-                    this.notificationsService.error(
-                        'Error',
-                        `${response.error}`
-                    )
-                }
+                this.uploadAvatarService.onCompleteItem(item, response, status);
             };
         }else{
             this.addWorkerService.addWorker(this.workerInfo, this.currentUser.currentCompany).subscribe(() => {

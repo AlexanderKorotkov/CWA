@@ -15,6 +15,7 @@ import { WorkerEditComponent }     from './worker-edit/worker-edit.component';
 import { WorkersService }          from './workers.service';
 import { AddWorkerService }        from './add-worker/add-worker.service';
 import { WorkerEditService }       from './worker-edit/worker-edit.service';
+import { UploadAvatarService }     from './shared/upload-avatar.service';
 
 
 
@@ -34,7 +35,8 @@ import { WorkerEditService }       from './worker-edit/worker-edit.service';
     providers: [
         WorkersService,
         AddWorkerService,
-        WorkerEditService
+        WorkerEditService,
+        UploadAvatarService
     ]
 })
 export class WorkersModule { }
