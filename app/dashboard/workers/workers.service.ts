@@ -13,13 +13,13 @@ export class WorkersService {
     public currentWorker: any;
 
     public getUserList = function(userId:string) {
-    for (var i = 0; i < this.workers.length; i++) {
-        if (this.workers[i].userId === userId) {
-            return this.workers[i];
+        for (var i = 0; i < this.workers.length; i++) {
+            if (this.workers[i].userId === userId) {
+                return this.workers[i];
+            }
         }
-    }
-    return null;
-};
+        return null;
+    };
 
     constructor(
         private http: Http,

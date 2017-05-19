@@ -2,10 +2,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'worker',
-    templateUrl: 'worker.component.html'
+    selector: 'worker-item',
+    templateUrl: 'worker-item.component.html'
 })
-export class WorkerComponent{
+export class WorkerItemComponent{
     @Input() worker: any;
     @Input() canDelete: boolean;
     @Output() deleteWorker = new EventEmitter();

@@ -5,13 +5,13 @@ import { AuthService }          from '../../shared/auth/auth.service';
 import {NotificationsService}   from 'angular2-notifications';
 
 import { WorkersService }       from './workers.service';
-import { WorkerComponent }      from './worker/worker.component';
+import { WorkerItemComponent }      from './worker-item/worker-item.component';
 
 @Component({
     moduleId: module.id,
     selector: 'workers',
     templateUrl: 'workers.component.html',
-    entryComponents: [WorkerComponent]
+    entryComponents: [WorkerItemComponent]
 })
 export class WorkersComponent implements OnInit{
 

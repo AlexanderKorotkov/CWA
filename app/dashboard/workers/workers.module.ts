@@ -7,7 +7,7 @@ import {SharedModule}              from '../../shared/shared.module';
 import { WorkersRoutingModule }    from './workers-routing.module';
 
 import { WorkersComponent }        from './workers.component';
-import { WorkerComponent }         from './worker/worker.component';
+import { WorkerItemComponent }         from './worker-item/worker-item.component';
 import { AddWorkerComponent }      from './add-worker/add-worker.component';
 import { WorkerDetailsComponent }  from './worker-details/worker-details.component';
 import { WorkerEditComponent }     from './worker-edit/worker-edit.component';
@@ -26,7 +26,7 @@ import { UploadAvatarService }     from './shared/upload-avatar.service';
     ],
     declarations: [
         WorkersComponent,
-        WorkerComponent,
+        WorkerItemComponent,
         AddWorkerComponent,
         WorkerDetailsComponent,
         WorkerEditComponent,

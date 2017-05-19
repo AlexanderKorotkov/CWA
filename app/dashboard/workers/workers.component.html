@@ -13,8 +13,8 @@
     </div>
 
     <div *ngIf="workers">
-        <div class="list-group" *ngFor="let worker of workers">
-            <worker [worker]="worker" [canDelete]="canDelete" (deleteWorker)="deleteWorker($event)" (goToWorkerDetails)="goToWorkerDetails($event)"></worker>
+        <div class="list-group" *ngFor="let workerEl of workers">
+            <worker-item [worker]="workerEl" [canDelete]="canDelete" (deleteWorker)="deleteWorker($event)" (goToWorkerDetails)="goToWorkerDetails($event)"></worker-item>
         </div>
     </div>
 
