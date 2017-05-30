@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm install -g http-server",
     "postinstall": "ng build --prod",
-    "start": "http-server dist/",
+    "start": "node Server.js",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
@@ -23,20 +22,19 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@angular/cli": "1.0.4",
+    "@angular/compiler-cli": "^4.0.0",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "typescript": "~2.2.0",
     "angular2-http-interceptor": "^4.0.0",
     "angular2-notifications": "^0.7.4",
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
     "ng2-file-upload": "^1.2.1",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4",
+    "zone.js": "^0.8.4"
 
-
-    "@angular/cli": "1.0.4",
-    "@angular/compiler-cli": "^4.0.0",
-    "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
-    "typescript": "~2.2.0"
   },
   "devDependencies": {
     "codelyzer": "~2.0.0",
