@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build --prod",
-    "start": "node Server.js",
+    "preinstall": "npm install -g http-server",
+    "postinstall": "ng build",
+    "start": "http-server dist/",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",

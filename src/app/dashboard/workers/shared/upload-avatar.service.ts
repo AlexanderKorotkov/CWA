@@ -1,4 +1,4 @@
-import {Injectable, OnInit}    from '@angular/core';
+import {Injectable}    from '@angular/core';
 import {Router} from '@angular/router';
 
 import {FileUploader} from 'ng2-file-upload';
@@ -21,8 +21,8 @@ export class UploadAvatarService {
         private configService: ConfigService
     ) { }
 
-    private addNewWorkerUploadUrl = `${this.configService.getConfig().apiMainUrl}/company${this.router.url}`;
-    private updateWorkerUploadUrl = `${this.configService.getConfig().apiMainUrl}/company/${this.authService.getUserIdentity().user.currentCompany.companyId}${this.router.url}`;
+    private addNewWorkerUploadUrl = `${this.configService.getConfig().apiMainUrl}/company/addWorker`;
+    private updateWorkerUploadUrl = `${this.configService.getConfig().apiMainUrl}/company/${this.authService.getUserIdentity().user.currentCompany.companyId}/workerEdit`;
     private token = this.authService.getUserIdentity().token;
 
     public target:any;
@@ -77,7 +77,7 @@ export class UploadAvatarService {
                 'Success',
                 `Worker was created`
             );
-            this.router.navigate(['/workers']);
+            this.router.navigate(['dashboard/workers']);
         }
         if(status === 400 ){
             response = JSON.parse(response);

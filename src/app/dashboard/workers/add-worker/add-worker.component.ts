@@ -50,7 +50,6 @@ export class AddWorkerComponent implements OnInit{
 
         this.uploader = this.uploadAvatarService.uploader;
         this.uploader.options.url = this.uploadAvatarService.setUploaderUrl('addWorker');
-
         this.uploader.onAfterAddingFile = ((item:any) => {
             this.uploadAvatarService.onAfterAddingFile(item);
         });
@@ -77,7 +76,7 @@ export class AddWorkerComponent implements OnInit{
                     'Success',
                     `Worker was created`
                 );
-                this.router.navigate(['/workers']);
+                this.router.navigate(['dashboard/workers']);
             },(result) => {
                 this.notificationsService.error(
                     'Error',
