@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm install -g http-server && npm install -g angular-cli",
-    "postinstall": "ng build",
+    "preinstall": "npm install -g angular-cli",
     "ng": "ng",
-    "start": "http-server dist/",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
