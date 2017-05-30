@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm install -g http-server",
+    "preinstall": "npm install -g http-server && npm install",
     "postinstall": "ng build --prod",
     "ng": "ng",
     "start": "http-server dist/",
