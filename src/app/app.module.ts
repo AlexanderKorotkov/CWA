@@ -19,13 +19,13 @@ import { LandingComponent }        from './landing/landing.component';
 
 @NgModule({
     imports: [
-      BrowserAnimationsModule,
       BrowserModule,
-      DashboardModule,
+      BrowserAnimationsModule,
       AuthModule,
       WorkersModule,
       MenuModule,
       SharedModule,
+      DashboardModule,
       AppRoutingModule,
     ],
     declarations: [

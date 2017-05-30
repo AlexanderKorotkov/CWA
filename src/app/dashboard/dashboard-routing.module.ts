@@ -10,10 +10,10 @@ import { MenuComponent }            from './menu/menu.component';
 
 
 const routes: Routes = [
-    { path: '',  component: DashboardComponent, canActivate: [AuthService],
+    { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthService],
         children: [
-            { path: 'workers', component: WorkersComponent, canActivate: [AuthService] },
-            { path: 'menu',  component: MenuComponent, canActivate: [AuthService] },
+            { path: 'workers', component: WorkersComponent },
+            { path: 'menu',  component: MenuComponent },
         ],
     }
 
