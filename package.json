@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm install -g http-server && npm install",
-    "postinstall": "ng build --prod",
+    "preinstall": "npm install -g http-server ",
+    "postinstall": "ng build --aot -prod",
     "ng": "ng",
-    "start": "http-server dist/",
+    "start": "node Server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
