@@ -39,7 +39,7 @@ var SignUpComponent = (function () {
             moduleId: module.id,
             selector: 'sign-up',
             templateUrl: 'sign-up.component.html',
-            styleUrls: ['../../shared/auth/auth.css']
+            styleUrls: ['../../core/auth/auth.css']
         })
     ], SignUpComponent);
     return SignUpComponent;

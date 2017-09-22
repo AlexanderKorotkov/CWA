@@ -10,10 +10,11 @@ import { SignUpComponent }         from './signUp/sign-up.component';
 import { SignUpService }           from './signUp/sign-up.service';
 import { SignInService }           from './signIn/sign-in.service';
 
+
 @NgModule({
     imports: [
-        AuthRoutingModule,
-        SharedModule
+      SharedModule,
+      AuthRoutingModule,
     ],
     declarations: [
         SignInComponent,
@@ -22,7 +23,6 @@ import { SignInService }           from './signIn/sign-in.service';
     providers: [
         SignInService,
         SignUpService
-    ],
-    bootstrap: [ ]
+    ]
 })
 export class AuthModule { }

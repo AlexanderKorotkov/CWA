@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 
-import { ConfigService } from '../../shared/config/config.service';
+import { ConfigService } from '../../core/config/config.service';
 import {Observable} from 'rxjs/Rx';
 
 // Import RxJs required methods

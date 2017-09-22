@@ -13,11 +13,11 @@ import { ChangePasswordService }   from './changePassword/change-password.servic
 import { CreateCompanyService }    from './createCompany/create-company.service';
 import { SelectCompanyService }    from './selectCompany/select-company.service';
 
-
 @NgModule({
     imports: [
+        SharedModule,
         MenuRoutingModule,
-        SharedModule
+
     ],
     declarations: [
         MenuComponent,

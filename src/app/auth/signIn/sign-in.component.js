@@ -38,7 +38,7 @@ var SignInComponent = (function () {
             moduleId: module.id,
             selector: 'sign-in',
             templateUrl: 'sign-in.component.html',
-            styleUrls: ['../../shared/auth/auth.css']
+            styleUrls: ['../../core/auth/auth.css']
         })
     ], SignInComponent);
     return SignInComponent;

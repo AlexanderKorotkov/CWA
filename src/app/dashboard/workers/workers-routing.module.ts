@@ -1,7 +1,7 @@
 import { NgModule }                from '@angular/core';
 import { RouterModule, Routes }    from '@angular/router';
 
-import { AuthService }             from '../../shared/auth/auth.service';
+import { AuthService }             from '../../core/auth/auth.service';
 
 import { AddWorkerComponent }      from './add-worker/add-worker.component';
 import { WorkerDetailsComponent }  from './worker-details/worker-details.component';
@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'workerEdit',  component: WorkerEditComponent, canActivate: [AuthService] },
 ];
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [ RouterModule.forChild(routes) ],
     exports: [ RouterModule ]
 })
 export class WorkersRoutingModule {}

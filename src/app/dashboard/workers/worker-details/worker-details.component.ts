@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { AuthService } from '../../../shared/auth/auth.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { WorkersService } from '../workers.service';
 
 @Component({

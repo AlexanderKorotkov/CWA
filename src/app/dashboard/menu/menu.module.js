@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var shared_module_1 = require('../../shared/shared.module');
+var shared_module_1 = require('../../core/shared.module');
 var menu_routing_module_1 = require('./menu-routing.module');
 var menu_component_1 = require('./menu.component');
 var change_password_component_1 = require('./changePassword/change-password.component');

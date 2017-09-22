@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import {NotificationsService} from 'angular2-notifications';
 
-import { AuthService } from '../../../shared/auth/auth.service';
+import { AuthService } from '../../../core/auth/auth.service';
 import { WorkerEditService } from './worker-edit.service';
 import { WorkersService } from '../workers.service';
 import { UploadAvatarService } from '../shared/upload-avatar.service';

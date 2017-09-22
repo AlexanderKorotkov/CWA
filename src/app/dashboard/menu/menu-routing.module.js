@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var auth_service_1 = require('../../shared/auth/auth.service');
+var auth_service_1 = require('../../core/auth/auth.service');
 var change_password_component_1 = require('./changePassword/change-password.component');
 var select_company_component_1 = require('./selectCompany/select-company.component');
 var create_company_component_1 = require('./createCompany/create-company.component');
@@ -21,7 +21,7 @@ var MenuRoutingModule = (function () {
     }
     MenuRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
+            imports: [router_1.RouterModule.forChild(routes)],
             exports: [router_1.RouterModule]
         })
     ], MenuRoutingModule);

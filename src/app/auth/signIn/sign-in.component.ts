@@ -5,15 +5,15 @@ import {NotificationsService} from 'angular2-notifications';
 
 import { SignInService } from './sign-in.service';
 import { SignInFields } from './sign-in-fields';
-import { AuthService } from '../../shared/auth/auth.service';
-import { ConfigService } from '../../shared/config/config.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { ConfigService } from '../../core/config/config.service';
 
 
 @Component({
     moduleId: module.id,
     selector: 'sign-in',
     templateUrl: 'sign-in.component.html',
-    styleUrls: ['../../shared/auth/auth.css']
+    styleUrls: ['../../core/auth/auth.css']
 })
 export class SignInComponent implements OnInit{
     constructor(

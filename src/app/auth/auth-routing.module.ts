@@ -9,7 +9,7 @@ const routes: Routes = [
     { path: 'signUp',  component: SignUpComponent}
 ];
 @NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [ RouterModule.forChild(routes) ],
     exports: [ RouterModule ]
 })
 export class AuthRoutingModule {}
